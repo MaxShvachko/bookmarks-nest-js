@@ -1,20 +1,14 @@
-import {
-  ForbiddenException,
-  Injectable,
-} from '@nestjs/common';
+import { ForbiddenException, Injectable } from '@nestjs/common';
 import * as argon from 'argon2';
 import { JwtService } from '@nestjs/jwt';
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
 
-import { PrismaService } from 'src/prisma/prisma.service';
+import { PrismaService } from '../prisma/prisma.service';
 import { AuthDto } from './dto';
 
 @Injectable()
 export class AuthService {
-  constructor(
-    private prisma: PrismaService,
-    private jwt: JwtService,
-  ) {}
+  constructor(private prisma: PrismaService, private jwt: JwtService) {}
 
   async signup(dto: AuthDto) {
     try {
@@ -31,14 +25,9 @@ export class AuthService {
 
       return user;
     } catch (error) {
-      if (
-        error instanceof
-        PrismaClientKnownRequestError
-      ) {
+      if (error instanceof PrismaClientKnownRequestError) {
         if (error.code === 'P2002') {
-          throw new ForbiddenException(
-            'Credentials already been taken',
-          );
+          throw new ForbiddenException('Credentials already been taken');
         }
       } else {
         throw error;
@@ -48,26 +37,18 @@ export class AuthService {
 
   async signin(dto: AuthDto) {
     try {
-      const user =
-        await this.prisma.user.findUnique({
-          where: { email: dto.email },
-        });
+      const user = await this.prisma.user.findUnique({
+        where: { email: dto.email },
+      });
 
       if (!user) {
-        throw new ForbiddenException(
-          'Credential incorrect',
-        );
+        throw new ForbiddenException('Credential incorrect');
       }
 
-      const pwMatches = await argon.verify(
-        user.hash,
-        dto.password,
-      );
+      const pwMatches = await argon.verify(user.hash, dto.password);
 
       if (!pwMatches) {
-        throw new ForbiddenException(
-          'Credential incorrect',
-        );
+        throw new ForbiddenException('Credential incorrect');
       }
 
       return this.signToken(user.id, user.email);
@@ -82,13 +63,10 @@ export class AuthService {
       email,
     };
 
-    const token = await this.jwt.signAsync(
-      payload,
-      {
-        expiresIn: '15m',
-        secret: process.env.JWT_SECRET,
-      },
-    );
+    const token = await this.jwt.signAsync(payload, {
+      expiresIn: '15m',
+      secret: process.env.JWT_SECRET,
+    });
 
     return { access_token: token };
   }

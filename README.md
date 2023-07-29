@@ -1,73 +1,79 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Bookmarks Nest JS APP
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+The Bookmarks App is a powerful and user-friendly application that allows you to organize and manage your favorite web links effortlessly. With its intuitive interface and robust features, the app simplifies bookmarking and retrieval, providing a seamless browsing experience.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Key Features
 
-## Description
+- **Authorization via Email:** Securely create an account and log in using your email address. Rest assured that your data is protected and accessible only to you.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- **Bookmark Management:** Easily add, edit, and delete bookmarks with just a few clicks. Keep your collection up-to-date and neatly organized for quick access.
+
+- **Search:** Find specific bookmarks instantly using the search function.
+
+The Bookmarks App offers a seamless and efficient way to manage your online resources. Organize your digital life with ease and never miss an important link again.
+
+Try the Bookmarks App today and experience a new level of convenience and productivity in your web browsing!
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Scripts](#scripts)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Installation
 
-```bash
-$ yarn install
-```
+To get started with the project, follow these steps:
 
-## Running the app
+1. Clone the repository.
+2. Install the required dependencies by running `yarn install`.
 
-```bash
-# development
-$ yarn run start
+## Usage
 
-# watch mode
-$ yarn run start:dev
+To run the project, use the following commands:
 
-# production mode
-$ yarn run start:prod
-```
+- `yarn start`: Start the project.
+- `yarn start:dev`: Start the project in development mode with watch mode enabled.
+- `yarn start:debug`: Start the project in debug mode with watch mode enabled.
+- `yarn start:prod`: Start the project in production mode.
 
-## Test
+## Env Variables
 
-```bash
-# unit tests
-$ yarn run test
+| Name           | Example Value                                               | Description                                      |
+|----------------|-------------------------------------------------------------|--------------------------------------------------|
+| DATABASE_URL   | "postgresql://postgres:123@localhost:5434/nest?schema=public" | Database connection URL                          |
+| JWT_SECRET     | "testJwt"                                                   | Secret key for JWT authentication                |
+| POSTGRES_USER  | "postgres"                                                  | Username for PostgreSQL database                 |
+| POSTGRES_PASSWORD | 123                                                   | Password for PostgreSQL database                 |
+| POSTGRES_DB    | "nest"                                                      | Name of the PostgreSQL database                  |
 
-# e2e tests
-$ yarn run test:e2e
+This table provides a quick overview of the environment variables used in the application along with example values and short descriptions of their purpose.
 
-# test coverage
-$ yarn run test:cov
-```
+## Scripts
 
-## Support
+The project comes with the following scripts:
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+- `prisma:dev:deploy`: Deploy Prisma migrations in development environment.
+- `db:dev:rm`: Remove the development database container.
+- `db:dev:up`: Start the development database container.
+- `db:dev:restart`: Restart the development database container, deploy migrations after restart.
+- `prisma:test:deploy`: Deploy Prisma migrations in test environment.
+- `db:test:rm`: Remove the test database container.
+- `db:test:up`: Start the test database container.
+- `db:test:restart`: Restart the test database container, deploy migrations after restart.
+- `studio:dev`: Launch Prisma Studio in development environment.
+- `studio:test`: Launch Prisma Studio in test environment.
+- `build`: Build the project.
+- `format`: Format the source code using Prettier.
+- `lint`: Lint the source code using ESLint.
+- `test`: Run Jest tests.
+- `test:watch`: Run Jest tests in watch mode.
+- `test:cov`: Run Jest tests with coverage report.
+- `test:debug`: Run Jest tests in debug mode.
+- `pretest:e2e`: Restart the test database before running end-to-end tests.
+- `test:e2e`: Run end-to-end tests in test environment.
 
-## Stay in touch
+## Contributing
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+Contributions are welcome! Please fork the repository and create a pull request.
