@@ -38,6 +38,18 @@ To run the project, use the following commands:
 - `yarn start:debug`: Start the project in debug mode with watch mode enabled.
 - `yarn start:prod`: Start the project in production mode.
 
+## Env Variables
+
+| Name           | Example Value                                               | Description                                      |
+|----------------|-------------------------------------------------------------|--------------------------------------------------|
+| DATABASE_URL   | "postgresql://postgres:123@localhost:5434/nest?schema=public" | Database connection URL                          |
+| JWT_SECRET     | "testJwt"                                                   | Secret key for JWT authentication                |
+| POSTGRES_USER  | "postgres"                                                  | Username for PostgreSQL database                 |
+| POSTGRES_PASSWORD | 123                                                   | Password for PostgreSQL database                 |
+| POSTGRES_DB    | "nest"                                                      | Name of the PostgreSQL database                  |
+
+This table provides a quick overview of the environment variables used in the application along with example values and short descriptions of their purpose.
+
 ## Scripts
 
 The project comes with the following scripts:
