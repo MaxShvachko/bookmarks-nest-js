@@ -30,15 +30,8 @@ To get started with the project, follow these steps:
 2. Install the required dependencies by running `yarn install`.
 
 ## Usage
-
-To run the project, use the following commands:
-
-- `yarn start`: Start the project.
-- `yarn start:dev`: Start the project in development mode with watch mode enabled.
-- `yarn start:debug`: Start the project in debug mode with watch mode enabled.
-- `yarn start:prod`: Start the project in production mode.
-
-## Env Variables
+Set up the .env file
+### Env Variables
 
 | Name           | Example Value                                               | Description                                      |
 |----------------|-------------------------------------------------------------|--------------------------------------------------|
@@ -49,6 +42,18 @@ To run the project, use the following commands:
 | POSTGRES_DB    | "nest"                                                      | Name of the PostgreSQL database                  |
 
 This table provides a quick overview of the environment variables used in the application along with example values and short descriptions of their purpose.
+
+### Start the development database container with the following script:
+- `db:dev:up`: Start the development database container.
+
+### Initiate the Prisma:
+- `prisma:dev:deploy`: Deploy Prisma migrations.
+
+### To run the project, use the following commands:
+- `yarn start`: Start the project.
+- `yarn start:dev`: Start the project in development mode with watch mode enabled.
+- `yarn start:debug`: Start the project in debug mode with watch mode enabled.
+- `yarn start:prod`: Start the project in production mode.
 
 ## Scripts
 
@@ -72,6 +77,11 @@ The project comes with the following scripts:
 - `test:cov`: Run Jest tests with coverage report.
 - `test:debug`: Run Jest tests in debug mode.
 - `pretest:e2e`: Restart the test database before running end-to-end tests.
+- `test:e2e`: Run end-to-end tests in test environment.
+
+## Testing
+
+To run tests in the watch mode run:
 - `test:e2e`: Run end-to-end tests in test environment.
 
 ## Contributing
